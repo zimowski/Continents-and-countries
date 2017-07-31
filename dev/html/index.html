@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl" ng-app="ContinentsAndCountriesApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>Continents and countries - Task for CallPage</title>
+    <link rel="stylesheet" href="styles/components.min.css?v=@@renderVersion">
+    <link rel="stylesheet" href="styles/basic.min.css?v=@@renderVersion">
+    <!--[if lt IE 9]>
+        <script src="scripts/ie.min.js?v=@@renderVersion"></script>
+        <script src="components/es5-shim/ie-shim.js"></script>
+    <![endif]-->
+</head>
+
+<body class="ng-cloak">
+    <div class="container" ng-controller="countriesAndContinentsListController">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-9">
+                <h1>Continents and countries</h1>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3" style="margin: 30px 0 30px 0">
+                <form novalidate ng-submit="findCountry(phraseText)" ng-show="countriesList">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Filter by country name" ng-model="phraseText">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-default">Search</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row" ng-show="!countriesList && !error">
+            <div class="col-xs-12">Loading content...</div>
+        </div>
+        <div class="row" ng-show="error">
+            <div class="col-xs-12">Sorry. Service is temporarily unavailable.</div>
+        </div>
+        <div class="row" ng-show="countriesList">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <button class="btn btn-default" ng-class="{ 'btn-success': showOnlyContinents }" ng-click="showOnlyContinents = !showOnlyContinents">
+                            Show only continents</button>
+
+                        <div class="pull-right">
+                            <strong style="margin-right: 10px">Sort countries</strong>
+                            <div class="btn-group">
+                                <button class="btn btn-default" ng-class="{ 'btn-success': sortCountryBy == 'name' }" ng-click="sortCountryBy = 'name'">ASC</button>
+                                <button class="btn btn-default" ng-class="{ 'btn-success': sortCountryBy == '-name' }" ng-click="sortCountryBy = '-name'">DESC</button>
+                            </div>
+                        </div>
+                        <div style="clear:both"></div>
+                        <div class="alert alert-warning" ng-show="showOnlyContinents">
+                            <strong>Attention!</strong> There are hidden states.
+                            <a class="pointer-cursor" ng-click="showOnlyContinents = !showOnlyContinents">Show states</a>.
+                        </div>
+
+                        <div class="alert alert-warning" ng-show="phrase">
+                            <strong>Attention!</strong> Search results are limited to the phrase: <strong>{{phrase}}</strong>.
+                            <a class="pointer-cursor" ng-click="phraseText = ''; findCountry(phraseText)">Clear</a>.
+                        </div>
+
+                        <div class="countries-list" ng-repeat="(region, countries) in countriesList | groupBy: 'region'">
+                            <div class="continent-name" ng-click="selectAll(region)">
+                                <input type="checkbox" ng-checked="checkedRegions.indexOf(region) > -1"> {{region || 'Undetermined' }}</div>
+                            <div class="country-name" ng-show="!showOnlyContinents" ng-repeat="country in countries | filterBy: ['name']: phrase | toArray: true | orderBy:sortCountryBy" ng-click="selectCountry(country)">
+                                <input type="checkbox" ng-checked="country.checked"> {{country.name}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/components.min.js?v=@@renderVersion"></script>
+    <script src="scripts/app.min.js?v=@@renderVersion"></script>
+</body>
+</html>
