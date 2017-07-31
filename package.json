@@ -1,5 +1,5 @@
 {
-  "name": "Countries List",
+  "name": "countries-list",
   "version": "1.0.0",
   "description": "Countries list from restcountries.eu (CORS API) with checkboxes and grouping by continents.",
   "main": "index.html",
