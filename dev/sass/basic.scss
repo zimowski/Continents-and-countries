@@ -1,0 +1,65 @@
+// basic.scss
+
+$bg-color: #ffffff;
+$box-radius: 10px;
+$lato-font-path: '/components/font/';
+
+@font-face {
+  font-family: 'Lato';
+  src: url('#{$lato-font-path}/lato-regular/lato-regular.eot');
+  src: local('Lato Regular'),
+       local('Lato-Regular'),
+       url('#{$lato-font-path}/lato-regular/lato-regular.eot?#iefix') format('embedded-opentype'),
+       url('#{$lato-font-path}/lato-regular/lato-regular.woff2') format('woff2'),
+       url('#{$lato-font-path}/lato-regular/lato-regular.woff') format('woff'),
+       url('#{$lato-font-path}/lato-regular/lato-regular.ttf') format('truetype'),
+       url('#{$lato-font-path}/lato-regular/lato-regular.svg#lato') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+    background: $bg-color;
+    font-family: 'Lato';
+}
+
+a {
+    color: #d00717;
+    &:hover {
+        color: #9c0511;
+    }
+}
+
+.ng-cloak {
+    display: none !important;
+}
+
+.countries-list {
+    input[type="checkbox"] {
+        margin: 10px;
+        margin-right: 20px;
+    }
+    .country-name {
+        border-bottom: 1px solid #dddddd;
+        padding-left: 10px;
+        cursor: pointer;
+    }
+    .continent-name {
+        cursor: pointer;
+        font-size: 1.6em;
+        background: #f6f6f6;
+        color: #666666;
+        border: 1px solid #dddddd;
+        padding: 10px;
+        font-weight: normal;
+        margin: 10px 0 10px 0px;
+    }
+}
+
+.pointer-cursor {
+    cursor: pointer;
+}
+
+.alert {
+    margin-top: 20px !important;
+}

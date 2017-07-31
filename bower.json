@@ -1,0 +1,27 @@
+{
+  "name": "Countries List",
+  "description": "Countries list from restcountries.eu (CORS API) with checkboxes and grouping by continents.",
+  "main": "index.html",
+  "authors": [
+    "Sebastian Zimowski <sebastian@zimowski.it>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "html5shiv": "^3.7.3",
+    "angular": "^1.6.5",
+    "es5-shim": "^4.5.9",
+    "lato": "^0.3.0",
+    "bootstrap": "^3.3.7",
+    "angular-filter": "^0.5.16"
+  }
+}
