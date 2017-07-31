@@ -1,10 +1,8 @@
-<<<<<<< HEAD
+
 List of continents and countries:
-=======
 # Continents-and-countries
 List countries, grouped by continents with checboxes.
 
->>>>>>> 9924976e6fd6dbc080cfc9521dc6ab4c9dc7b7ae
 - data retrieved from restcountries.eu server,
 - grouping by continents,
 - sorting countries,
