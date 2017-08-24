@@ -1,5 +1,4 @@
 
-List of continents and countries:
 # Continents-and-countries
 List countries, grouped by continents with checboxes.
 
